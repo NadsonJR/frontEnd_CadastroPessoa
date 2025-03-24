@@ -37,7 +37,7 @@ function Register({ onRegister, onBack }) {
       email: newEmail
     });
 
-    fetch(`http://localhost:5550/pessoas/check-email?email=${newEmail}`)
+    fetch(`https://cadastropessoabackend-6a32f0706386.herokuapp.com/pessoas/check-email?email=${newEmail}`)
       .then(response => response.text().then(message => ({ status: response.status, message })))
       .then(({ status, message }) => {
         if (status === 409) {
@@ -52,7 +52,7 @@ function Register({ onRegister, onBack }) {
   };
 
   const handleCepSearch = () => {
-    fetch(`http://localhost:5550/endereco/cep/${formData.cep}`)
+    fetch(`https://cadastropessoabackend-6a32f0706386.herokuapp.com/endereco/cep/${formData.cep}`)
       .then(response => response.json())
       .then(data => {
         setFormData({
@@ -75,7 +75,7 @@ function Register({ onRegister, onBack }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5550/pessoas/create', {
+    fetch('https://cadastropessoabackend-6a32f0706386.herokuapp.com/pessoas/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function Register({ onRegister, onBack }) {
           pessoaId: pessoaData.id // Use the returned id from pessoa creation
         };
 
-        return fetch('http://localhost:5550/endereco/create', {
+        return fetch('https://cadastropessoabackend-6a32f0706386.herokuapp.com/endereco/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

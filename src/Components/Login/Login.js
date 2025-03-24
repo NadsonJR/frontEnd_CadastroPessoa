@@ -25,7 +25,7 @@ function Login({ onSwitchToRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5550/pessoas/login', {
+    fetch('https://cadastropessoabackend-6a32f0706386.herokuapp.com/pessoas/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
